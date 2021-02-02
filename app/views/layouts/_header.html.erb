@@ -8,10 +8,13 @@
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
+          <%= link_to  "投稿一覧",  stores_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
           <%= link_to  "logout",  destroy_user_session_path, method: :delete, class: "nav-link"%>
         </li>
         <li class="nav-item">
-          <%= link_to  "#{current_user.name}",  "/users/#{current_user.name}", class: "nav-link" %>
+          <%= link_to  "#{current_user.username}",  "/users/#{current_user.username}", class: "nav-link" %>
         </li>
         
       <% else %>

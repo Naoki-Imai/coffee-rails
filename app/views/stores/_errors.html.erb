@@ -1,0 +1,12 @@
+<% if store.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"><%= pluralize(store.errors.count, "error") %></h4>
+    <p><%= pluralize(store.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+  </div>
+  <hr>
+  <p class="mb-0">
+    <% store.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </p>
+<% end %>

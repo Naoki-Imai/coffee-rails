@@ -1,23 +1,23 @@
 require 'test_helper'
 
-class CoffeesControllerTest < ActionDispatch::IntegrationTest
+class StoresControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get coffees_index_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get coffees_edit_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get coffees_new_url
+    get stores_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get coffees_show_url
+    get stores_show_url
+    assert_response :success
+  end
+
+  test "should get new" do
+    get stores_new_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get stores_edit_url
     assert_response :success
   end
 
