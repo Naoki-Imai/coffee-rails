@@ -1,23 +1,24 @@
 <div class="container mt-5">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">店名</th>
-        <th scope="col">場所</th>
-        <th scope="col">感想</th>
-        <th scope="col">投稿者</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @stores.each do |store |%>
-        <tr>
-          <td><%= link_to  store.name, store_path(store) %></td>
-          <td><%= store.address %></td>
-          <td><%= store.body %></td>
-          <td><%= store.user.username %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to  "投稿", new_store_path, class: "btn btn-success" %>
+  <div class="row">
+    <% @stores.each do |store|%>
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card">
+          <% if store.image.present? %>
+            <%= image_tag store.image.url %>
+          <% else %>
+            <%= image_tag 'no-photo.jpg'%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= store.name %></h5>
+            <p class="card-text"><%= store.address %></p>
+            <% if user_signed_in? %>
+              <%= link_to  "edit", edit_store_path(store), class: "btn btn-primary" %>
+              <%= link_to  "delete", store_path(store), class: "btn btn-danger", method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+    <%= link_to  "create", new_store_path, class: "btn btn-success" %>
 </div>
